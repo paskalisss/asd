@@ -13,7 +13,6 @@ body {
     line-height: 1.6;
 }
 
-/* --- LIGHT MODE --- */
 body.light-mode {
     background-color: #f8fafc;
     background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
@@ -52,7 +51,6 @@ body.light-mode h3 {
     color: #0f172a;
 }
 
-/* --- NAVBAR --- */
 .header {
     position: sticky;
     top: 0;
@@ -94,7 +92,6 @@ body.light-mode h3 {
     padding: 20px;
 }
 
-/* --- 1. SPLIT HERO --- */
 .hero {
     position: relative;
     display: flex;
@@ -257,7 +254,6 @@ h2, h3 {
     margin-bottom: 0;
 }
 
-/* --- 3. ASYMMETRIC PROJECTS GRID --- */
 .project-grid {
     display: grid;
     grid-template-columns: 1.4fr 1fr;
@@ -339,7 +335,6 @@ input {
     margin-top: 8px;
 }
 
-/* --- 4. CONTACT SPLIT BAR --- */
 .contact-split {
     display: flex;
     justify-content: space-between;
