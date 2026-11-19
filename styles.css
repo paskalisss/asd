@@ -1,18 +1,68 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Courier New', Courier, monospace, sans-serif;
     background-color: #0f172a;
+    background-image: radial-gradient(#1e293b 1px, transparent 1px);
+    background-size: 24px 24px;
     color: #e2e8f0;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
+/* --- LIGHT MODE --- */
+body.light-mode {
+    background-color: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    color: #0f172a;
+}
+
+body.light-mode .header,
+body.light-mode footer {
+    background-color: rgba(248, 250, 252, 0.85);
+    border-color: #cbd5e1;
+}
+
+body.light-mode .card {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+}
+
+body.light-mode .card:hover {
+    border-color: #10b981;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.12);
+}
+
+body.light-mode .profile-frame {
+    background-color: #ffffff;
+}
+
+body.light-mode input {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3 {
+    color: #0f172a;
+}
+
+/* --- NAVBAR --- */
 .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: #0f172a;
+    padding: 18px 40px;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid #1e293b;
 }
 
@@ -22,10 +72,16 @@ body {
     font-size: 18px;
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+}
+
 .menu a {
     color: #94a3b8;
     text-decoration: none;
     margin-left: 20px;
+    transition: color 0.2s ease;
 }
 
 .menu a:hover {
@@ -33,13 +89,51 @@ body {
 }
 
 .main-content {
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* --- 1. SPLIT HERO --- */
 .hero {
-    padding: 40px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 0 40px;
+}
+
+.hero-text {
+    flex: 1.4;
+}
+
+.hero-image {
+    flex: 0.8;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-frame {
+    position: relative;
+    padding: 8px;
+    border: 1px dashed #10b981;
+    border-radius: 16px;
+    background-color: #1e293b;
+    box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.profile-frame:hover {
+    transform: translateY(-6px) rotate(1.5deg);
+}
+
+.profile-pic {
+    display: block;
+    width: 190px;
+    height: 190px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .greeting {
@@ -50,76 +144,234 @@ body {
 h1 {
     font-size: 42px;
     color: #ffffff;
-    margin: 10px 0;
+    margin: 8px 0;
+    line-height: 1.2;
+}
+
+.cursor::after {
+    content: "_";
+    color: #10b981;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 .sub-title {
     color: #94a3b8;
-    font-size: 18px;
+    font-size: 16px;
+    margin-top: 4px;
 }
 
-.description {
-    color: #cbd5e1;
-    max-width: 500px;
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 22px;
 }
 
 .btn-main {
     display: inline-block;
-    color: #10b981;
+    background-color: #10b981;
+    color: #0f172a;
+    font-weight: bold;
     border: 1px solid #10b981;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 4px;
-    margin-top: 15px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .btn-main:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    display: inline-block;
+    color: #10b981;
+    border: 1px solid #10b981;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-ghost:hover {
     background-color: rgba(16, 185, 129, 0.1);
 }
 
+/* --- CARDS & SECTIONS --- */
 .block {
-    margin: 40px 0;
+    margin: 50px 0;
 }
 
-h2 {
+h2, h3 {
     color: #ffffff;
 }
 
 .card {
     background-color: #1e293b;
-    padding: 20px;
-    border-radius: 6px;
+    padding: 22px;
+    border-radius: 8px;
     border: 1px solid #334155;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.project-grid {
-    display: flex;
-    gap: 20px;
-}
-
-.project-grid .card {
-    flex: 1;
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #10b981;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.1);
 }
 
 .code {
     color: #10b981;
     font-size: 12px;
+    display: block;
+    margin-bottom: 6px;
 }
 
-.contact-center {
-    text-align: center;
+/* --- 2. BENTO ABOUT GRID --- */
+.bento-about {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 20px;
+}
+
+.status-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+    font-size: 14px;
+}
+
+.status-list li {
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #334155;
+    padding-bottom: 6px;
+}
+
+.status-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* --- 3. ASYMMETRIC PROJECTS GRID --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+}
+
+.project-grid .card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge-live {
+    font-size: 11px;
+    color: #0f172a;
+    background-color: #10b981;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 99px;
+}
+
+.game-box {
+    display: flex;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.tag {
+    font-size: 11px;
+    color: #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+input {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    background-color: #0f172a;
+    color: #ffffff;
+    width: 85px;
+    font-family: inherit;
+}
+
+.btn-small {
+    background-color: transparent;
+    color: #10b981;
+    border: 1px solid #10b981;
+    padding: 6px 12px;
+    margin-left: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.btn-small:hover {
+    background-color: rgba(16, 185, 129, 0.12);
+}
+
+.info-text {
+    color: #10b981;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* --- 4. CONTACT SPLIT BAR --- */
+.contact-split {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-info h3 {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
+.contact-info p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.contact-action {
+    text-align: right;
 }
 
 .email-link {
+    display: block;
     color: #10b981;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 footer {
     text-align: center;
     padding: 20px;
     color: #64748b;
-    border-top: 1px solid #1e293b;
 }

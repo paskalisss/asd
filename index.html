@@ -9,61 +9,111 @@
 <body>
 
     <header class="header">
-    <div class="logo">SAHAT PASKALIS SILALAHI</div>
-    <nav class="menu">
-        <a href="#about">about</a>
-        <a href="#projects">projects</a>
-        <a href="#contact">contact</a>
-    </nav>
+        <div class="logo"><Sahat /></div>
+        <nav class="menu">
+            <a href="#about">about</a>
+            <a href="#projects">projects</a>
+            <a href="#contact">contact</a>
+            <button id="theme-btn" class="btn-small">Light Mode</button>
+        </nav>
     </header>
 
     <main class="main-content">
-    <section class="hero">
-        <p class="greeting">Hello world, I am</p>
-        <h1>Sahat Paskalis</h1>
-        <p class="sub-title">Student at BINUS University</p>
-        <p class="description">
-        I focus on learning how to build fast, clean, and simple web.
-        </p>
-        <a href="#projects" class="btn-main">View Projects →</a>
-    </section>
+        <!-- 1. SPLIT HERO: Teks di kiri, Foto di kanan -->
+        <section class="hero">
+            <div class="hero-text">
+                <p class="greeting">Hello world, I am</p>
+                <h1 class="cursor">Sahat Paskalis</h1>
+                <p class="sub-title">Computer Science Student @ BINUS University</p>
+                <p class="description">
+                    I focus on learning how to build fast, clean, and simple web experiences.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-main">View Projects →</a>
+                    <a href="#contact" class="btn-ghost">Contact Me</a>
+                </div>
+            </div>
 
-    <section id="about" class="block">
-        <h2>I. About Me</h2>
-        <div class="card">
-        <p>I enjoy solving problems through logic and simple design. Currently pursuing my degree while continuously sharpening my web development skills.</p>
-        </div>
-    </section>
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <img src="fotodinama.jpeg" alt="Sahat Paskalis" class="profile-pic">
+                </div>
+            </div>
+        </section>
 
-    <section id="projects" class="block">
-        <h2>II. Projects</h2>
-        <div class="project-grid">
-        <div class="card">
-            <span class="code">01.project</span>
-            <h3>Project One</h3>
-        <p>creating a game (number guessing).</p>
-        </div>                      
-        <div class="card">
-        <span class="code">02.project</span>
-        <h3>Project Two</h3>
-        <p>Creating an easy and simple website.</p>
-        </div>
-    </div>
-    </section>
+        <!-- 2. BENTO GRID: About Me + Quick Status sejajar -->
+        <section id="about" class="block">
+            <h2>I. About Me</h2>
+            <div class="bento-about">
+                <div class="card about-main">
+                    <span class="code">Bio</span>
+                    <p>I enjoy solving problems through logic and simple design. Currently pursuing my degree while continuously sharpening my web development skills.</p>
+                </div>
+                <div class="card about-status">
+                    <span class="code">STATUS</span>
+                    <ul class="status-list">
+                        <li><strong>Based in:</strong> Indonesia</li>
+                        <li><strong>Focus:</strong> Improve My Skill</li>
+                        <li><strong>Stack:</strong> HTML, CSS, JS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <section id="contact" class="block">
-    <h2>III. Contact</h2>
-    <div class="card contact-center">
-        <h3>Get In Touch</h3>
-        <p>My inbox is always open for new opportunities </p>
-        <a href="mailto:sahat.silalahi@binus.ac.id" class="email-link">sahat.silalahi@binus.ac.id</a>
-    </div>
-    </section>
+        <!-- 3. PROJECTS GRID: Proyek interaktif lebih menonjol -->
+        <section id="projects" class="block">
+            <h2>II. Projects</h2>
+            <div class="project-grid">
+                <div class="card project-featured">
+                    <div class="card-top">
+                        <span class="code">01.featured_project</span>
+                        <span class="badge-live">Interactive</span>
+                    </div>
+                    <h3>Number Guessing Game</h3>
+                    <p>Tebak angka rahasia dari 1 sampai 5:</p>
+                    <div class="game-box">
+                        <input type="number" id="tebakan-input" min="1" max="5" placeholder="1 - 5">
+                        <button id="tebak-btn" class="btn-small">Tebak</button>
+                    </div>
+                    <p id="hasil-tebak" class="info-text"></p>
+                    <div class="tech-tags">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <span class="code">02.project</span>
+                    <h3>Simple Website</h3>
+                    <p>Creating an easy, lightweight, and responsive personal website from scratch.</p>
+                    <div class="tech-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">JavaScript</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CONTACT SPLIT BAR -->
+        <section id="contact" class="block">
+            <h2>III. Contact</h2>
+            <div class="card contact-split">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>My inbox is always open for new opportunities or collaboration.</p>
+                </div>
+                <div class="contact-action">
+                    <a href="mailto:sahat.silalahi@binus.ac.id" id="email-link" class="email-link">sahat.silalahi@binus.ac.id</a>
+                    <button id="copy-email-btn" class="btn-small">Copy Email</button>
+                    <p id="copy-status" class="info-text"></p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-    <p>@2026 Sahat Paskalis. All rights reserved.</p>
+        <p>@2026 Sahat Paskalis. All rights reserved.</p>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
